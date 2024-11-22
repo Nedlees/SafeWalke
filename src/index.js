@@ -1,17 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom';
+import './index.css';  // Certifique-se de que esse arquivo exista ou remova se não usar
+import App from './App';  // Se você estiver usando 'App.js', caso contrário, use o nome correto do componente
+import { BrowserRouter as Router } from 'react-router-dom'; // Para navegação, se necessário
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+// Renderiza o componente principal 'App' ou 'MainPage' no DOM
+ReactDOM.render(
+  <Router>
+    <App /> {/* Se você estiver usando MainPage diretamente, substitua 'App' por 'MainPage' */}
+  </Router>,
+  document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

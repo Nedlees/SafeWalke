@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
+import HomePage from "./Pages/HomePage";
+import MainPage from "./Pages/MainPage";
 
-function App() {
+const App = () => {
+  // Estado para controlar qual tela exibir
+  const [isHomePage, setIsHomePage] = useState(true);
+
+  // Função para mudar para a MainPage
+  const goToMainPage = () => {
+    setIsHomePage(false);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {isHomePage ? (
+        <HomePage goToMainPage={goToMainPage} /> // Exibe a HomePage
+      ) : (
+        <MainPage /> // Exibe a MainPage
+      )}
     </div>
   );
-}
+};
 
 export default App;
